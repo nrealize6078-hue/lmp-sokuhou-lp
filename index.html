@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>不動産営業、終了のお知らせ</title>
+<meta name="description" content="緊急速報：「物件を売るだけの不動産営業」が終わろうとしています。人生支援営業DX・LIFE MAKE PARTNERS 加盟募集。">
+<link rel="canonical" href="https://nrealize6078-hue.github.io/lmp-sokuhou-lp/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LIFE MAKE PARTNERS">
+<meta property="og:title" content="【緊急速報】不動産営業、終了のお知らせ">
+<meta property="og:description" content="「物件を売るだけの不動産営業」が終わろうとしています。顕在客15%の中で競争する営業から、人生を入口にする営業へ。LMP加盟募集。">
+<meta property="og:url" content="https://nrealize6078-hue.github.io/lmp-sokuhou-lp/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Archivo+Black&family=Roboto+Mono:wght@500;700&display=swap">
+<style>
+/* ═════════ トークン ═════════ */
+:root{
+  --black:#0B0B0B;
+  --white:#FFFFFF;
+  --red:#E60012;
+  --green:#0FA968;
+  --grey:#242424;
+  --grey-2:#3A3A3A;
+
+  --jp:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  --num:"Archivo Black","Arial Black",var(--jp);
+  --mono:"Roboto Mono",ui-monospace,monospace;
+
+  --head-h:46px;
+  --lband:clamp(36px,7.2vw,60px);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--black);color:var(--white);
+  font-family:var(--jp);font-size:16px;line-height:1.8;
+  overflow-x:hidden;
+  padding-left:var(--lband);   /* L字テロップの縦帯ぶんを確保 */
+}
+[hidden]{display:none!important}
+img{max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--jp);font-weight:900;margin:0;line-height:1.28;text-wrap:balance}
+p{margin:0}
+s{text-decoration-thickness:2px}
+
+.crt{
+  position:fixed;top:0;right:0;bottom:0;left:var(--lband);pointer-events:none;z-index:90;
+  background:repeating-linear-gradient(to bottom,rgba(0,0,0,.055) 0 1px,transparent 1px 3px);
+}
+/* ═════════ L字テロップ（縦帯） ═════════ */
+.lband{
+  position:fixed;left:0;top:0;bottom:0;width:var(--lband);z-index:75;
+  background:var(--red);color:#fff;
+  display:flex;flex-direction:column;align-items:center;
+  padding:.85rem 0;gap:1.1rem;overflow:hidden;
+}
+.lband .blip{background:#fff;flex:0 0 auto}
+.lband-t,.lband-sub,.lband-foot{
+  writing-mode:vertical-rl;
+  text-orientation:upright;      /* 英数字を横倒しにしない */
+  -webkit-text-orientation:upright;
+}
+.lband-t{
+  font-weight:900;
+  font-size:clamp(.78rem,2.1vw,.98rem);letter-spacing:.26em;line-height:1;
+  flex:0 0 auto;
+}
+.lband-rule{width:16px;height:1px;background:rgba(255,255,255,.55);flex:0 0 auto}
+.lband-sub{
+  font-weight:700;
+  font-size:clamp(.68rem,1.9vw,.84rem);letter-spacing:.12em;line-height:1.15;
+  color:rgba(255,255,255,.94);
+  flex:0 1 auto;min-height:0;overflow:hidden;
+}
+.lband-foot{
+  margin-top:auto;font-weight:900;
+  font-size:clamp(.64rem,1.7vw,.78rem);letter-spacing:.14em;
+  color:rgba(255,255,255,.85);flex:0 0 auto;
+}
+/* 縦書きの中で英数字を横に組む（縦中横） */
+.tcy{
+  text-combine-upright:all;-webkit-text-combine:horizontal;
+  letter-spacing:0;font-feature-settings:"palt";
+  font-size:1.45em;   /* 3文字を1文字分に圧縮するぶん、字面を戻す */
+}
+@media(max-width:520px){.lband-sub{display:none}}
+@media(max-height:660px){.lband-sub{display:none}}
+
+.wrap{width:min(1080px,100% - 2.2rem);margin-inline:auto}
+.narrow{width:min(760px,100% - 2.2rem);margin-inline:auto}
+
+/* ═════════ ニュースヘッダー ═════════ */
+.head{
+  position:fixed;top:0;left:var(--lband);right:0;z-index:80;
+  background:rgba(11,11,11,.92);backdrop-filter:blur(8px);
+  border-bottom:1px solid #2B2B2B;
+}
+.head-in{
+  width:min(1080px,100% - 2.2rem);margin-inline:auto;
+  height:var(--head-h);display:flex;align-items:center;gap:1rem;
+}
+.ch-live{
+  display:flex;align-items:center;gap:.4rem;flex:0 0 auto;
+  font-family:var(--mono);font-weight:700;font-size:.68rem;letter-spacing:.18em;color:var(--red);
+}
+.blip{width:9px;height:9px;border-radius:50%;background:var(--red);animation:blink 1.4s steps(1,end) infinite}
+@keyframes blink{50%{opacity:.1}}
+.chname{
+  font-family:var(--jp);font-weight:900;font-size:.76rem;letter-spacing:.2em;color:var(--white);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.headdate{
+  margin-left:auto;flex:0 0 auto;
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;color:#7E7E7E;font-variant-numeric:tabular-nums;
+}
+.hdclock{
+  flex:0 0 auto;font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;
+  color:#B4B4B4;font-variant-numeric:tabular-nums;
+}
+.pbar{height:2px;background:#222}
+.pbar i{display:block;height:100%;width:0;background:var(--red)}
+@media(max-width:820px){.hdclock{display:none}}
+@media(max-width:520px){.chname{letter-spacing:.1em;font-size:.7rem}}
+
+/* ═════════ セクション地色 ═════════ */
+.sec{padding:6rem 0;position:relative}
+.on-black{background:var(--black);color:var(--white)}
+.on-white{background:var(--white);color:var(--black)}
+.on-grey{background:var(--grey);color:var(--white)}
+.on-red{background:var(--red);color:var(--white)}
+.full{min-height:88vh;display:flex;flex-direction:column;justify-content:center}
+
+.telop{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-weight:900;font-size:.8rem;letter-spacing:.22em;
+  padding:.4rem .85rem;line-height:1.3;
+}
+.telop-red{background:var(--red);color:var(--white)}
+.telop-green{background:var(--green);color:#04170E}
+.telop-out{background:transparent;box-shadow:inset 0 0 0 1px currentColor;letter-spacing:.18em}
+.h2{font-size:clamp(1.55rem,4.6vw,2.7rem)}
+.one{margin-top:1.3rem;font-size:clamp(.98rem,2.6vw,1.15rem);font-weight:700}
+.on-white .one{color:#4A4A4A}
+.on-black .one{color:#B4B4B4}
+.note{margin-top:1.2rem;font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;color:#6C7788;line-height:1.9}
+.note strong{color:#98A3B2}
+
+.slide-l,.slide-r{will-change:transform}
+.slide-l.go{animation:inL .5s cubic-bezier(.16,.84,.28,1) both}
+.slide-r.go{animation:inR .5s cubic-bezier(.16,.84,.28,1) both}
+@keyframes inL{from{transform:translateX(-52px);opacity:0}to{transform:none;opacity:1}}
+@keyframes inR{from{transform:translateX(52px);opacity:0}to{transform:none;opacity:1}}
+
+/* ═════════ ボタン ═════════ */
+.btn-line-main,.btn-line-sub{
+  display:inline-flex;align-items:center;justify-content:center;gap:.6em;
+  text-decoration:none;font-family:var(--jp);font-weight:900;
+  letter-spacing:.04em;line-height:1.4;border:1px solid transparent;cursor:pointer;
+  transition:transform .14s ease,background .14s ease,color .14s ease;
+}
+.btn-line-main::before,.btn-line-sub::before{content:"▶";font-size:.6em;line-height:1;transform:translateY(-.04em)}
+.btn-line-main{
+  background:var(--red);color:#fff;border-color:var(--red);
+  font-size:clamp(1.05rem,3.4vw,1.4rem);padding:1.3rem 2.3rem;
+}
+.btn-line-main:hover{background:#FF1A2E;transform:translateY(-2px)}
+.btn-line-sub{
+  background:transparent;color:#fff;border-color:#fff;
+  font-size:clamp(.92rem,2.8vw,1.08rem);padding:1.1rem 1.9rem;
+}
+.btn-line-sub:hover{background:#fff;color:var(--black)}
+.btn-line-main:focus-visible,.btn-line-sub:focus-visible{outline:3px solid var(--green);outline-offset:4px}
+
+.head a.hdr-cta{
+  flex:0 0 auto;font-size:.74rem;letter-spacing:.06em;padding:.5rem .9rem;
+  color:#fff;background:var(--red);border-color:var(--red);
+}
+.head a.hdr-cta.btn-line-sub{color:#fff;background:transparent;border-color:#fff}
+.head a.hdr-cta::before{font-size:.56em}
+.head a.hdr-cta:hover{background:#FF1A2E;transform:none}
+@media(max-width:640px){
+  .headdate{display:none}
+  .head a.hdr-cta{margin-left:auto}
+}
+
+/* ═════════ 報道素材（透過画像） ═════════ */
+/* 現場のシルエット */
+.crew{margin:0 auto 1.4rem;width:min(680px,100%)}
+.crew img{display:block;width:100%;height:auto}
+
+/* ハンドマイク */
+.mic{margin:0 auto 1.6rem;width:clamp(104px,21vw,176px)}
+.mic img{display:block;width:100%;height:auto}
+
+/* ═════════ 01 ファーストビュー ═════════ */
+#s01{
+  padding-top:calc(var(--head-h) + 3.5rem);padding-bottom:0;
+  background:
+    radial-gradient(80% 55% at 20% 12%,rgba(230,0,18,.28),transparent 70%),
+    var(--black);
+}
+.flash{
+  display:inline-flex;align-items:center;gap:.6rem;background:var(--red);color:#fff;
+  font-weight:900;font-size:1.05rem;letter-spacing:.34em;padding:.55rem 1.1rem;
+  animation:pulse 2.4s ease-in-out infinite;
+}
+.flash .blip{background:#fff;width:10px;height:10px}
+@keyframes pulse{0%,100%{filter:none}50%{filter:brightness(1.22)}}
+#s01 h1{margin-top:2rem;font-size:clamp(2rem,6.6vw,4.2rem);letter-spacing:-.02em;line-height:1.24}
+#s01 h1 .big{
+  display:block;margin-top:.35em;
+  font-size:clamp(2.6rem,11vw,7.2rem);letter-spacing:-.045em;line-height:1.02;
+}
+#s01 h1 .big i{
+  display:inline-block;font-style:normal;
+  background-image:linear-gradient(to top,var(--red) 0 .3em,transparent .3em);
+  background-repeat:no-repeat;background-size:100% 100%;
+  animation:swipe .8s cubic-bezier(.2,.85,.2,1) .4s both;
+}
+#s01 h1 .big i:nth-child(2){animation-delay:.62s}
+/* 文節の途中で折り返させないための単位 */
+.seg{display:inline-block}
+@keyframes swipe{from{background-size:0 100%}to{background-size:100% 100%}}
+.fv-telop{margin-top:3.2rem;background:var(--red)}
+.fv-telop-in{
+  width:min(1080px,100% - 2.2rem);margin-inline:auto;padding:.85rem 0;
+  font-weight:900;font-size:clamp(.9rem,2.6vw,1.1rem);letter-spacing:.04em;color:#fff;
+}
+.ticker{background:#101010;border-top:1px solid #2E2E2E;overflow:hidden}
+.ticker-track{display:flex;width:max-content;animation:tick 38s linear infinite}
+.ticker-half{
+  display:flex;gap:3.2rem;padding:.6rem 3.2rem .6rem 0;
+  font-family:var(--mono);font-size:.86rem;letter-spacing:.05em;color:#DCDCDC;white-space:nowrap;
+}
+.ticker-half span::before{content:"◆";color:var(--red);margin-right:.5em}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.scrollcue{padding:2.4rem 0 3rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.28em;color:#6E6E6E}
+.scrollcue i{display:inline-block;animation:bob 1.9s ease-in-out infinite;font-style:normal}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+
+/* ═════════ 02 現場中継＋従来フロー ═════════ */
+#s02{
+  text-align:center;
+  background:url(assets/white-horizon.webp) center/cover no-repeat,var(--white);
+}
+.flow{margin:2.8rem auto 0;display:grid;gap:.5rem;max-width:560px;text-align:left}
+.flow-i{background:#F1F1F1;padding:.95rem 1.25rem;display:flex;align-items:center;gap:1.1rem}
+.flow-i b{
+  font-family:var(--mono);font-weight:700;font-size:.66rem;letter-spacing:.14em;color:#8E8E8E;flex:0 0 auto;
+}
+.flow-i span{font-weight:900;font-size:clamp(1.3rem,4.4vw,2.1rem);letter-spacing:.02em;line-height:1.2}
+.flow-i.last{background:#0B0B0B;color:#fff}
+.flow-i.last b{color:#7E7E7E}
+.flow-arr{font-family:var(--mono);color:#B0B0B0;padding-left:1.35rem;font-size:.85rem}
+.warn{
+  margin-top:3rem;background:var(--red);color:#fff;padding:1.3rem 1.4rem;
+  display:flex;gap:1rem;align-items:flex-start;flex-wrap:wrap;text-align:left;
+}
+.warn-k{font-weight:900;font-size:.86rem;letter-spacing:.24em;flex:0 0 auto;padding-top:.3rem}
+.warn-t{font-weight:900;font-size:clamp(1.1rem,3.4vw,1.7rem);line-height:1.5;flex:1 1 17em}
+
+/* ═════════ 03 15% / 85% ═════════ */
+.pcts{
+  margin-top:2.2rem;display:grid;grid-template-columns:auto 1fr;
+  gap:1.6rem 2.8rem;align-items:end;
+}
+.pct-num{
+  font-family:var(--num);line-height:.82;letter-spacing:-.05em;font-variant-numeric:tabular-nums;
+  transform:scale(var(--grow,1));transform-origin:left bottom;transition:transform .12s linear;
+}
+.pct-cap{font-weight:900;letter-spacing:.02em;line-height:1.5;margin-top:.7rem}
+.pc-now .pct-num{font-size:clamp(2.8rem,8vw,4.6rem);color:#6A6A6A}
+.pc-now .pct-cap{font-size:clamp(.84rem,2.2vw,1rem);color:#9A9A9A}
+.pc-fut .pct-num{font-size:clamp(5.6rem,22vw,13rem);color:var(--red)}
+.pc-fut .pct-cap{font-size:clamp(1.05rem,3.2vw,1.55rem);color:#fff}
+.pct-note{margin-top:2.2rem;font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;color:#8A8A8A;line-height:1.9}
+@media(max-width:640px){.pcts{grid-template-columns:1fr;gap:2rem}}
+
+/* ═════════ 04 赤：戦う場所 ═════════ */
+#s04{text-align:center}
+#s04 h2{font-size:clamp(1.7rem,5.6vw,3.4rem);line-height:1.35}
+#s04 h2 em{
+  font-style:normal;font-family:var(--num);font-size:1.15em;letter-spacing:-.03em;
+  background:#fff;color:var(--red);padding:0 .12em;display:inline-block;
+}
+.becauses{margin-top:3rem;display:grid;gap:.5rem;justify-content:center}
+.becauses div{
+  font-weight:900;font-size:clamp(1rem,3vw,1.35rem);letter-spacing:.02em;
+  border-top:1px solid rgba(255,255,255,.35);padding:.85rem 0;
+}
+.becauses div:last-child{border-bottom:1px solid rgba(255,255,255,.35)}
+
+/* ═════════ 05 人生を入口に ═════════ */
+#s05{text-align:center}
+#s05 h2{margin-top:1.5rem;font-size:clamp(1.7rem,5.6vw,3.3rem);line-height:1.32}
+#s05 h2 em{font-style:normal;color:var(--green)}
+#s05 h2 s{color:#A0A0A0;text-decoration-color:rgba(230,0,18,.55)}
+.vs-line{display:grid;gap:1px;background:#DCDCDC;margin-top:2.6rem;text-align:left}
+.vs-x,.vs-o{padding:1.4rem 1.4rem;display:flex;gap:1rem;align-items:baseline}
+.vs-x{background:#F1F1F1}
+.vs-o{background:var(--black)}
+.vs-mark{font-family:var(--mono);font-weight:700;font-size:1.1rem;flex:0 0 auto;line-height:1.4}
+.vs-x .vs-mark{color:#8E8E8E}
+.vs-o .vs-mark{color:var(--green)}
+.vs-txt{font-weight:900;font-size:clamp(1.05rem,3.2vw,1.6rem);line-height:1.5}
+.vs-x .vs-txt{color:#79848F;text-decoration:line-through;text-decoration-color:rgba(230,0,18,.5)}
+.vs-o .vs-txt{color:#fff}
+/* ═════════ 06 LMP登場 ═════════ */
+#s06{
+  text-align:center;padding:7.5rem 0;
+  background:radial-gradient(65% 55% at 50% 45%,rgba(15,169,104,.14),transparent 70%),var(--black);
+}
+.cm-k{font-family:var(--num);font-size:.9rem;letter-spacing:.4em;color:var(--green)}
+.cm-logo{
+  margin-top:2.2rem;font-family:var(--num);
+  font-size:clamp(2.2rem,9vw,5.4rem);line-height:1.02;letter-spacing:-.015em;
+}
+.cm-sub{margin-top:1.6rem;font-weight:900;font-size:clamp(.9rem,2.8vw,1.2rem);letter-spacing:.3em;color:var(--green)}
+.cm-rule{width:56px;height:3px;background:#3A3A3A;margin:2.8rem auto}
+.cm-shift{font-weight:900;font-size:clamp(1.1rem,3.6vw,1.85rem);line-height:1.7}
+.cm-shift s{color:#7A7A7A;text-decoration-color:rgba(230,0,18,.6)}
+.cm-shift em{font-style:normal;color:var(--green)}
+
+/* ═════════ 07 仕組み（1帯に圧縮） ═════════ */
+.infra{margin-top:2.6rem;display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:#2E2E2E}
+.inf{background:#151515;padding:1.3rem 1rem;display:flex;flex-direction:column;gap:.45rem}
+.inf-k{font-family:var(--mono);font-weight:700;font-size:.6rem;letter-spacing:.14em;color:var(--green)}
+.inf-h{font-weight:900;font-size:clamp(.92rem,2.4vw,1.05rem);line-height:1.4}
+.inf-s{font-family:var(--mono);font-size:.62rem;color:#8A8A8A;letter-spacing:.04em}
+@media(max-width:900px){.infra{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.infra{grid-template-columns:1fr}}
+
+/* ═════════ 08 実績 ═════════ */
+#s08{text-align:center}
+.lvl{
+  display:inline-flex;align-items:center;gap:.5rem;background:var(--green);color:#04170E;
+  font-family:var(--num);font-size:.82rem;letter-spacing:.22em;padding:.4rem .85rem;
+}
+.results{margin-top:2.8rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#DCDCDC}
+.res{background:#F7F7F7;padding:2rem 1.2rem;display:flex;flex-direction:column;gap:.9rem;justify-content:space-between}
+.res-k{
+  font-family:var(--mono);font-weight:700;font-size:.66rem;letter-spacing:.14em;color:#7E7E7E;
+  line-height:1.7;
+}
+.res-v{
+  font-family:var(--num);color:var(--red);line-height:.95;letter-spacing:-.03em;
+  font-size:clamp(2rem,6.4vw,3.2rem);font-variant-numeric:tabular-nums;
+}
+.res-v small{font-family:var(--jp);font-weight:900;font-size:.42em;letter-spacing:0;margin-left:.06em}
+.res-jump{display:flex;align-items:baseline;justify-content:center;gap:.5rem;flex-wrap:wrap}
+.res-jump .from{
+  font-family:var(--num);font-size:clamp(1.1rem,3.2vw,1.5rem);color:#A8A8A8;
+  text-decoration:line-through;text-decoration-color:rgba(230,0,18,.5);text-decoration-thickness:2px;
+}
+.res-jump .arr{font-family:var(--num);font-size:clamp(1rem,3vw,1.4rem);color:var(--green)}
+@media(max-width:760px){.results{grid-template-columns:1fr}}
+
+/* ═════════ 09 締め＋CTA ═════════ */
+#s09{
+  text-align:center;padding:7rem 0 5rem;
+  background:
+    linear-gradient(rgba(11,11,11,.60),rgba(11,11,11,.88)),
+    url(assets/studio-wall.webp) center/cover no-repeat,
+    var(--black);
+}
+.st-k{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;color:#8E8E8E;line-height:1.9;
+}
+#s09 h2{margin-top:2.2rem;font-size:clamp(1.9rem,7.4vw,4.2rem);line-height:1.3;letter-spacing:-.02em}
+#s09 h2 em{font-style:normal;color:var(--red)}
+.gap{width:1px;height:56px;background:linear-gradient(#3A3A3A,transparent);margin:2.8rem auto}
+.after{
+  margin:0 auto;max-width:30em;font-weight:900;
+  font-size:clamp(1rem,3.2vw,1.45rem);line-height:1.75;color:#CFCFCF;
+}
+.after b{color:#fff;background:linear-gradient(to top,rgba(230,0,18,.75) 0 .28em,transparent .28em)}
+.limit{
+  margin:3.2rem auto 0;display:inline-flex;align-items:center;gap:.7rem;
+  border:1px solid var(--red);padding:.6rem 1.1rem;
+  font-weight:900;font-size:clamp(.88rem,2.6vw,1.05rem);letter-spacing:.1em;
+}
+.limit em{font-style:normal;color:var(--red);font-family:var(--num);letter-spacing:.16em}
+.cta-set{margin-top:2.4rem;display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center;align-items:center}
+.cta-mins{margin-top:1.2rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;color:#8E8E8E;line-height:1.9}
+.line-add{margin:2.4rem 0 0}
+.line-add a{display:inline-block;line-height:0}
+.line-add img{height:56px;width:auto}
+.line-add-fb{
+  display:inline-flex;align-items:center;gap:.5em;background:#06C755;color:#03210E;
+  font-weight:900;font-size:1rem;letter-spacing:.08em;padding:.95rem 1.7rem;
+}
+
+/* ═════════ 追従バー ═════════ */
+.sticky{
+  position:fixed;left:var(--lband);right:0;bottom:0;z-index:85;
+  background:rgba(11,11,11,.96);backdrop-filter:blur(8px);
+  border-top:2px solid var(--red);
+  transform:translateY(115%);transition:transform .28s ease;
+}
+.sticky.show{transform:none}
+.sticky-in{
+  width:min(1080px,100% - 1.6rem);margin-inline:auto;
+  padding:.7rem 0;display:flex;gap:.6rem;align-items:center;
+}
+.sticky .btn-line-main{flex:1 1 auto;font-size:.95rem;padding:.9rem 1rem}
+.sticky .btn-line-sub{flex:0 1 auto;font-size:.85rem;padding:.85rem 1.1rem;white-space:nowrap}
+.sticky-on .foot{padding-bottom:7.5rem}
+@media(max-width:480px){
+  .sticky .btn-line-sub{padding:.85rem .75rem}
+  .sticky .btn-line-main::before,.sticky .btn-line-sub::before{display:none}
+}
+
+/* ═════════ 注記・フッター ═════════ */
+.fine{border-top:1px solid #1E1E1E;padding:2.6rem 0;background:var(--black)}
+.fine ul{margin:0;padding-left:1.15em;font-size:.72rem;color:#767676;line-height:2}
+.fine strong{color:#A2A2A2;font-weight:700}
+.foot{border-top:1px solid #1E1E1E;padding:2rem 0 3rem;background:var(--black)}
+.foot-in{display:flex;justify-content:space-between;gap:1.2rem;flex-wrap:wrap;align-items:baseline}
+.foot-b{font-family:var(--num);font-size:.95rem;letter-spacing:.04em}
+.foot-b small{display:block;font-family:var(--jp);font-weight:400;font-size:.72rem;letter-spacing:0;color:#767676;margin-top:.35rem}
+.foot-n{font-size:.68rem;color:#606060;max-width:26em;line-height:1.9}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+  #s01 h1 .big span{background-size:100% 100%}
+  .pct-num{transform:none}
+  .sticky.show{transform:none}
+}
+</style>
+</head>
+<body>
+<div class="crt" aria-hidden="true"></div>
+
+<!-- ═══════ L字テロップ（縦帯） ═══════ -->
+<div class="lband" aria-hidden="true">
+  <i class="blip"></i>
+  <div class="lband-t">緊急速報</div>
+  <div class="lband-rule"></div>
+  <div class="lband-sub">不動産営業モデル転換／顕在客<span class="tcy">15%</span>・潜在客<span class="tcy">85%</span>／加盟エリア<span class="tcy">2</span>社限定</div>
+  <div class="lband-foot"><span class="tcy">LMP</span></div>
+</div>
+
+<!-- ═══════ ヘッダー ═══════ -->
+<header class="head">
+  <div class="head-in">
+    <div class="ch-live"><i class="blip"></i>LIVE</div>
+    <div class="chname">LIFE MAKE PARTNERS</div>
+    <div class="headdate">2026.09.12</div>
+    <div class="hdclock" id="hdclock">--:--:--</div>
+    <a class="btn-line-main hdr-cta" href="https://lin.ee/WHYApuM" target="_blank" rel="noopener">LINE登録</a>
+  </div>
+  <div class="pbar"><i id="pbar"></i></div>
+</header>
+
+<!-- ═══════ 01 緊急速報 ═══════ -->
+<section class="sec on-black full" id="s01">
+  <div class="wrap">
+    <div class="flash"><i class="blip"></i>緊急速報</div>
+    <h1>
+      「物件を売るだけの<br>不動産営業」が
+      <span class="big"><i>終わろうとして</i><i>います。</i></span>
+    </h1>
+  </div>
+  <div class="fv-telop">
+    <div class="fv-telop-in">不動産業界で新たな営業モデルが登場</div>
+  </div>
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <div class="ticker-half"><span>不動産業界で新たな営業モデルが登場</span><span>年間契約数 2件 → 12件 ／ 年商 3億6,000万円</span><span>営業未経験から自力契約まで 最短2ヶ月</span><span>LIFE MAKE PARTNERS ― 人生支援営業DX</span><span>加盟はエリア2社限定</span></div>
+      <div class="ticker-half"><span>不動産業界で新たな営業モデルが登場</span><span>年間契約数 2件 → 12件 ／ 年商 3億6,000万円</span><span>営業未経験から自力契約まで 最短2ヶ月</span><span>LIFE MAKE PARTNERS ― 人生支援営業DX</span><span>加盟はエリア2社限定</span></div>
+    </div>
+  </div>
+  <div class="wrap scrollcue">SCROLL <i>↓</i></div>
+</section>
+
+<!-- ═══════ 02 現場中継＋従来の営業＋問題 ═══════ -->
+<section class="sec on-white" id="s02">
+  <div class="wrap">
+    <div class="telop telop-red">現場中継</div>
+    <p class="crew"><img src="assets/silhouette.png" alt="" width="1400" height="964" loading="lazy"></p>
+    <h2 class="h2">現場からお伝えします。</h2>
+    <p class="one"><span class="seg">従来の不動産営業は、</span><span class="seg">5つの工程が</span><span class="seg">一直線につながっています。</span></p>
+
+    <div class="flow">
+      <div class="flow-i slide-l"><b>01</b><span>物件</span></div>
+      <div class="flow-arr">↓</div>
+      <div class="flow-i slide-l"><b>02</b><span>広告</span></div>
+      <div class="flow-arr">↓</div>
+      <div class="flow-i slide-l"><b>03</b><span>問い合わせ</span></div>
+      <div class="flow-arr">↓</div>
+      <div class="flow-i slide-l"><b>04</b><span>商談</span></div>
+      <div class="flow-arr">↓</div>
+      <div class="flow-i last slide-l"><b>05</b><span>契約</span></div>
+    </div>
+
+    <div class="warn">
+      <div class="warn-k">⚠️ 問題</div>
+      <div class="warn-t">「物件を探している人」にしか<br>出会えないこと。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 03 15% / 85% ═══════ -->
+<section class="sec on-black pct" id="s03">
+  <div class="wrap">
+    <div class="telop telop-out">市場の内訳</div>
+    <div class="pcts">
+      <div class="pc pc-now">
+        <div class="pct-num" data-count="15" data-suffix="%">15%</div>
+        <p class="pct-cap">今すぐ不動産を<br>探している人</p>
+      </div>
+      <div class="pc pc-fut">
+        <div class="pct-num" data-count="85" data-suffix="%">85%</div>
+        <p class="pct-cap">まだ不動産を探していない人</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 04 戦う場所が違った ═══════ -->
+<section class="sec on-red" id="s04">
+  <div class="narrow">
+    <h2>従来の不動産営業は、<br><em>15%</em> の中で<br>競争している。</h2>
+    <div class="becauses">
+      <div class="slide-l">だから広告費をかける。</div>
+      <div class="slide-l">だから競合と比較される。</div>
+      <div class="slide-l">だから価格競争になる。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 05 「人生」を入口にする ═══════ -->
+<section class="sec on-white" id="s05">
+  <div class="wrap">
+    <div class="telop telop-green">🟢 NEW BUSINESS MODEL</div>
+    <h2><s>「物件」</s>ではなく、<br><em>「人生」</em>を入口にする。</h2>
+
+    <div class="vs-line">
+      <div class="vs-x">
+        <div class="vs-mark">✕</div>
+        <div class="vs-txt">「家を買いませんか？」</div>
+      </div>
+      <div class="vs-o">
+        <div class="vs-mark">○</div>
+        <div class="vs-txt">「人生設計、考えたことありますか？」</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════ 06 LMP登場 ═══════ -->
+<section class="sec on-black" id="s06">
+  <div class="wrap">
+    <div class="cm-k">NEW</div>
+    <div class="cm-logo">LIFE MAKE<br>PARTNERS</div>
+    <div class="cm-sub">人生支援営業DX</div>
+    <div class="cm-rule"></div>
+    <p class="cm-shift"><s>「物件を売る営業」</s>から<br><em>「人生を支援する営業」</em>へ。</p>
+  </div>
+</section>
+
+<!-- ═══════ 07 仕組み ═══════ -->
+<section class="sec on-black" id="s07">
+  <div class="wrap">
+    <div class="telop telop-out">仕組み＋AI</div>
+    <h2 class="h2">属人化させない。</h2>
+    <p class="one"><span class="seg">人生を入口にする営業を、</span><span class="seg">担当者の力量に頼らず</span><span class="seg">回すための5つのインフラ。</span></p>
+
+    <div class="infra">
+      <div class="inf slide-l">
+        <div class="inf-k">INFRA 01</div>
+        <div class="inf-h">REALIZE OS MA</div>
+        <div class="inf-s">接点と追客を一元管理</div>
+      </div>
+      <div class="inf slide-l">
+        <div class="inf-k">INFRA 02</div>
+        <div class="inf-h">AI営業支援</div>
+        <div class="inf-s">ミオ先生 / アオ先生</div>
+      </div>
+      <div class="inf slide-l">
+        <div class="inf-k">INFRA 03</div>
+        <div class="inf-h">営業教育</div>
+        <div class="inf-s">マニュアル / Eラーニング</div>
+      </div>
+      <div class="inf slide-l">
+        <div class="inf-k">INFRA 04</div>
+        <div class="inf-h">AIロープレ</div>
+        <div class="inf-s">何度でも練習できる</div>
+      </div>
+      <div class="inf slide-l">
+        <div class="inf-k">INFRA 05</div>
+        <div class="inf-h">顧客接点</div>
+        <div class="inf-s">加盟店ネットワーク</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 08 実績 ═══════ -->
+<section class="sec on-white" id="s08">
+  <div class="wrap">
+    <div class="lvl">LEVEL UP</div>
+    <h2 class="h2" style="margin-top:1.5rem">入口を変えた会社は、<br>こうなった。</h2>
+
+    <div class="results">
+      <div class="res slide-l">
+        <div class="res-k">年間契約数</div>
+        <div class="res-jump">
+          <span class="from">2件</span>
+          <span class="arr">→</span>
+          <span class="res-v">12<small>件</small></span>
+        </div>
+      </div>
+      <div class="res slide-l">
+        <div class="res-k">年商</div>
+        <div class="res-v">3<small>億</small>6,000<small>万円</small></div>
+      </div>
+      <div class="res slide-l">
+        <div class="res-k">営業未経験から<br>自力契約まで</div>
+        <div class="res-v">最短2<small>ヶ月</small></div>
+      </div>
+    </div>
+
+    <p class="pct-note">※ 加盟企業の実績の一例です。成果を保証するものではありません。</p>
+  </div>
+</section>
+
+<!-- ═══════ 09 締め＋CTA ═══════ -->
+<section class="sec on-black" id="s09">
+  <div class="wrap">
+    <p class="mic"><img src="assets/mic.webp" alt="" width="620" height="944" loading="lazy"></p>
+    <div class="st-k">最後に、<br>全国の不動産会社経営者へ。</div>
+    <h2>あなたの会社は、<br>まだ<em>「物件」</em>を<br>売っていますか？</h2>
+    <div class="gap"></div>
+    <p class="after"><span class="seg">これからの不動産営業は、</span><br><span class="seg">「何を売るか」ではなく</span><br><b>「誰と、いつ出会うか」</b>。</p>
+
+    <div class="limit"><em>AREA</em>加盟はエリア 2社 限定</div>
+
+    <div class="cta-set">
+      <a class="btn-line-main" href="https://lin.ee/WHYApuM" target="_blank" rel="noopener">LINEで診断</a>
+      <a class="btn-line-sub" href="https://line.me/R/oaMessage/%40179gucaj/?%E8%B3%87%E6%96%99%E8%AB%8B%E6%B1%82" target="_blank" rel="noopener">資料請求をする</a>
+    </div>
+    <div class="cta-mins">友だち追加後、会社名・お名前・ご相談内容をお送りください。<br>「資料請求をする」はトーク欄に「資料請求」が入った状態で開きます。</div>
+
+    <p class="line-add">
+      <a href="https://lin.ee/WHYApuM" target="_blank" rel="noopener">
+        <img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="108" border="0">
+      </a>
+    </p>
+  </div>
+</section>
+
+<!-- ═══════ 追従バー ═══════ -->
+<div class="sticky" id="sticky">
+  <div class="sticky-in">
+    <a class="btn-line-main" href="https://lin.ee/WHYApuM" target="_blank" rel="noopener">LINEで診断</a>
+    <a class="btn-line-sub" href="https://line.me/R/oaMessage/%40179gucaj/?%E8%B3%87%E6%96%99%E8%AB%8B%E6%B1%82" target="_blank" rel="noopener">資料請求</a>
+  </div>
+</div>
+
+<!-- ═══════ 注記 ═══════ -->
+<div class="fine">
+  <div class="wrap">
+    <ul>
+      <li>「15%／85%」は、LMPが不動産市場をどう捉えているかを示す<strong>考え方の区分</strong>です。特定の統計調査に基づく数値ではありません。</li>
+      <li>年間契約数・年商・自力契約までの期間は<strong>加盟企業の実績の一例</strong>であり、同様の成果を保証するものではありません。実績は地域・体制・稼働状況により異なります。</li>
+      <li>加盟条件・エリア状況・提供範囲の詳細は、ご登録後に個別にご案内します。</li>
+    </ul>
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div class="foot-b">
+      LIFE MAKE PARTNERS
+      <small>人生支援営業DX</small>
+    </div>
+    <div class="foot-n">本ページはニュース番組の体裁を用いた広告表現です。実在の報道機関・番組とは関係ありません。</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var pb = document.getElementById('pbar');
+  var sticky = document.getElementById('sticky');
+
+  /* ヘッダーの時刻（放送画面の時計） */
+  var hc = document.getElementById('hdclock');
+  if (hc) {
+    var pad = function(v){ return v < 10 ? '0' + v : '' + v; };
+    var tickClock = function(){
+      var d = new Date();
+      hc.textContent = pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
+    };
+    tickClock();
+    setInterval(tickClock, 1000);
+  }
+
+  /* スクロール連動：進行バー・追従バー・数字の巨大化 */
+  var pcts = Array.prototype.slice.call(document.querySelectorAll('.pct'));
+  var ticking = false;
+
+  function frame(){
+    ticking = false;
+    var h = document.documentElement;
+    var max = h.scrollHeight - window.innerHeight;
+    var y = h.scrollTop || window.pageYOffset;
+    if (pb) pb.style.width = (max > 0 ? y / max * 100 : 0) + '%';
+
+    if (sticky) {
+      var on = y > window.innerHeight * 0.9;
+      sticky.classList.toggle('show', on);
+      document.body.classList.toggle('sticky-on', on);
+    }
+
+    if (reduce) return;
+    var vh = window.innerHeight;
+    pcts.forEach(function(sec){
+      var r = sec.getBoundingClientRect();
+      var p = (vh - r.top) / (vh + r.height);
+      p = p < 0 ? 0 : (p > 1 ? 1 : p);
+      var g = (0.94 + p * 0.12).toFixed(3);
+      Array.prototype.forEach.call(sec.querySelectorAll('.pct-num'), function(num){
+        num.style.setProperty('--grow', g);
+      });
+    });
+  }
+  function onScroll(){ if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', onScroll);
+  frame();
+
+  if (!('IntersectionObserver' in window)) return;
+
+  /* テロップが左右から入る */
+  if (!reduce) {
+    var slides = document.querySelectorAll('.slide-l, .slide-r');
+    var ioSlide = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (!e.isIntersecting) return;
+        var group = Array.prototype.slice.call(e.target.parentNode.children).filter(function(n){
+          return n.classList && (n.classList.contains('slide-l') || n.classList.contains('slide-r'));
+        });
+        var i = group.indexOf(e.target);
+        e.target.style.animationDelay = (i > 0 ? i * 0.09 : 0) + 's';
+        e.target.classList.add('go');
+        ioSlide.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.15 });
+    Array.prototype.forEach.call(slides, function(n){ ioSlide.observe(n); });
+  }
+
+  /* 数字のカウントアップ */
+  var nums = document.querySelectorAll('[data-count]');
+  var ioNum = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if (!e.isIntersecting) return;
+      var el = e.target;
+      ioNum.unobserve(el);
+      if (reduce) return;
+      var goal = parseInt(el.getAttribute('data-count'), 10);
+      var sfx  = el.getAttribute('data-suffix') || '';
+      var t0 = null, dur = 900;
+      function step(t){
+        if (t0 === null) t0 = t;
+        var k = Math.min((t - t0) / dur, 1);
+        var eased = 1 - Math.pow(1 - k, 3);
+        el.textContent = Math.round(goal * eased) + sfx;
+        if (k < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }, { threshold: 0.4 });
+  Array.prototype.forEach.call(nums, function(n){ ioNum.observe(n); });
+
+  /* LINE公式の画像が読めない環境では緑のテキストボタンに差し替える */
+  var la = document.querySelector('.line-add img');
+  if (la) la.addEventListener('error', function(){
+    var b = document.createElement('span');
+    b.className = 'line-add-fb';
+    b.textContent = '友だち追加';
+    if (la.parentNode) la.parentNode.replaceChild(b, la);
+  });
+})();
+</script>
+
+</body>
+</html>
