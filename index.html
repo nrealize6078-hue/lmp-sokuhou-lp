@@ -373,9 +373,23 @@ s{text-decoration-thickness:2px}
   0%,100%{box-shadow:8px 8px 0 #fff,0 0 0 0 rgba(255,255,255,0)}
   50%{box-shadow:8px 8px 0 #fff,0 0 0 12px rgba(255,255,255,.28)}
 }
+.pct-more{margin-top:3rem;padding-right:8px}
+.btn-report.on-dark{
+  color:var(--black);background:#fff;border-color:#fff;
+  box-shadow:8px 8px 0 var(--red);animation-name:rpPulseDark;
+}
+.btn-report.on-dark .rp-tag{background:var(--red);color:#fff}
+.btn-report.on-dark:hover{box-shadow:4px 4px 0 var(--red)}
+.btn-report.on-dark:focus-visible{outline-color:#fff}
+@keyframes rpPulseDark{
+  0%,100%{box-shadow:8px 8px 0 var(--red),0 0 0 0 rgba(230,0,18,0)}
+  50%{box-shadow:8px 8px 0 var(--red),0 0 0 12px rgba(230,0,18,.35)}
+}
 @media(max-width:480px){
   .btn-report{font-size:1.05rem;gap:.55rem;padding:1rem .9rem 1rem .8rem;box-shadow:6px 6px 0 #fff}
   @keyframes rpPulse{0%,100%{box-shadow:6px 6px 0 #fff}50%{box-shadow:6px 6px 0 #fff,0 0 0 10px rgba(255,255,255,.28)}}
+  .btn-report.on-dark{box-shadow:6px 6px 0 var(--red)}
+  @keyframes rpPulseDark{0%,100%{box-shadow:6px 6px 0 var(--red)}50%{box-shadow:6px 6px 0 var(--red),0 0 0 10px rgba(230,0,18,.35)}}
 }
 
 /* ═════════ 04 赤：戦う場所 ═════════ */
@@ -639,6 +653,9 @@ s{text-decoration-thickness:2px}
         <div class="pct-num" data-count="85" data-suffix="%">85%</div>
         <p class="pct-cap">まだ不動産を探していない人</p>
       </div>
+    </div>
+    <div class="pct-more">
+      <a class="btn-report on-dark" href="https://lmp-fifteen-report.uminchu-t0422.chatgpt.site/" target="_blank" rel="noopener"><span class="rp-tag">特集</span><span class="rp-txt">15％の正体を知る</span><span class="rp-ico" aria-hidden="true">▶</span></a>
     </div>
   </div>
 </section>
