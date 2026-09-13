@@ -189,11 +189,47 @@ s{text-decoration-thickness:2px}
 }
 
 /* ═════════ 報道素材（透過画像） ═════════ */
-/* 現場のシルエット */
-.crew{margin:0 auto 1.4rem;width:min(680px,100%)}
-.crew img{display:block;width:100%;height:auto}
-.crew-live{width:min(440px,100%);margin-bottom:2.2rem}
-.crew-live img{box-shadow:0 18px 40px -18px rgba(0,0,0,.45)}
+/* 現場中継：ミオ先生の中継映像をモニターとして組む */
+.live-grid{
+  display:grid;grid-template-columns:1fr;
+  grid-template-areas:"head" "feed" "one" "flow";
+  justify-items:center;
+}
+.live-head{grid-area:head}
+.live-one{grid-area:one}
+.live-flow{grid-area:flow;width:100%}
+.feed{
+  grid-area:feed;margin:2rem 0 0;width:min(440px,100%);
+  position:relative;z-index:2;
+  background:var(--black);padding:6px 6px 0;
+  box-shadow:0 34px 60px -34px rgba(0,0,0,.6);
+}
+.feed img{display:block;width:100%;height:auto}
+.feed::after{
+  content:"";position:absolute;left:6px;right:6px;top:6px;bottom:38px;pointer-events:none;
+  background:repeating-linear-gradient(to bottom,rgba(0,0,0,.07) 0 1px,transparent 1px 3px);
+}
+.feed-bar{
+  display:flex;align-items:center;gap:.55rem;height:38px;padding:0 .5rem;
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;color:#fff;white-space:nowrap;
+}
+.feed-bar b{color:var(--red);font-weight:700}
+.feed-loc{font-family:var(--jp);font-weight:700;letter-spacing:.04em;color:#CFCFCF;overflow:hidden;text-overflow:ellipsis}
+.feed-tc{margin-left:auto;color:#7E7E7E;font-variant-numeric:tabular-nums}
+
+@media(min-width:900px){
+  #s02{text-align:left}
+  .live-grid{
+    grid-template-columns:minmax(0,1fr) minmax(0,440px);
+    grid-template-rows:auto auto auto 1fr;
+    grid-template-areas:"head feed" "one feed" "flow feed" ". feed";
+    column-gap:clamp(2.5rem,5vw,4.5rem);justify-items:stretch;align-items:start;
+  }
+  /* モニターを黒い速報画面との境目にまたがせる */
+  .feed{margin:-11rem 0 0;width:100%}
+  .live-head{padding-top:1rem}
+  #s02 .flow{margin-left:0}
+}
 
 /* ハンドマイク */
 .mic{margin:0 auto 1.6rem;width:clamp(104px,21vw,176px)}
@@ -497,21 +533,30 @@ s{text-decoration-thickness:2px}
 <!-- ═══════ 02 現場中継＋従来の営業＋問題 ═══════ -->
 <section class="sec on-white" id="s02">
   <div class="wrap">
-    <div class="telop telop-red">現場中継</div>
-    <p class="crew crew-live"><img src="assets/mio-live.webp" alt="現地から中継するミオ先生" width="820" height="1230" loading="lazy"></p>
-    <h2 class="h2">現場からお伝えします。</h2>
-    <p class="one"><span class="seg">従来の不動産営業は、</span><span class="seg">5つの工程が</span><span class="seg">一直線につながっています。</span></p>
+    <div class="live-grid">
+      <h2 class="h2 live-head">現場からお伝えします。</h2>
 
-    <div class="flow">
-      <div class="flow-i slide-l"><b>01</b><span>物件</span></div>
-      <div class="flow-arr">↓</div>
-      <div class="flow-i slide-l"><b>02</b><span>広告</span></div>
-      <div class="flow-arr">↓</div>
-      <div class="flow-i slide-l"><b>03</b><span>問い合わせ</span></div>
-      <div class="flow-arr">↓</div>
-      <div class="flow-i slide-l"><b>04</b><span>商談</span></div>
-      <div class="flow-arr">↓</div>
-      <div class="flow-i last slide-l"><b>05</b><span>契約</span></div>
+      <figure class="feed">
+        <img src="assets/mio-live.webp" alt="現地から中継するミオ先生" width="820" height="1230" decoding="async">
+        <figcaption class="feed-bar">
+          <i class="blip"></i><b>LIVE</b>
+          <span class="feed-loc">不動産営業の現場より</span>
+          <span class="feed-tc" id="feedclock">--:--:--</span>
+        </figcaption>
+      </figure>
+
+      <p class="one live-one"><span class="seg">従来の不動産営業は、</span><span class="seg">5つの工程が</span><span class="seg">一直線につながっています。</span></p>
+      <div class="flow live-flow">
+        <div class="flow-i slide-l"><b>01</b><span>物件</span></div>
+        <div class="flow-arr">↓</div>
+        <div class="flow-i slide-l"><b>02</b><span>広告</span></div>
+        <div class="flow-arr">↓</div>
+        <div class="flow-i slide-l"><b>03</b><span>問い合わせ</span></div>
+        <div class="flow-arr">↓</div>
+        <div class="flow-i slide-l"><b>04</b><span>商談</span></div>
+        <div class="flow-arr">↓</div>
+        <div class="flow-i last slide-l"><b>05</b><span>契約</span></div>
+      </div>
     </div>
 
     <div class="warn">
@@ -714,7 +759,9 @@ s{text-decoration-thickness:2px}
     var pad = function(v){ return v < 10 ? '0' + v : '' + v; };
     var tickClock = function(){
       var d = new Date();
-      hc.textContent = pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
+      var t = pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
+      hc.textContent = t;
+      var fc = document.getElementById('feedclock'); if (fc) fc.textContent = t;
     };
     tickClock();
     setInterval(tickClock, 1000);
