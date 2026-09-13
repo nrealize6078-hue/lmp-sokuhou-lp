@@ -347,17 +347,36 @@ s{text-decoration-thickness:2px}
 .pc-fut .pct-cap{font-size:clamp(1.05rem,3.2vw,1.55rem);color:#fff}
 .pct-note{margin-top:2.2rem;font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;color:#8A8A8A;line-height:1.9}
 @media(max-width:640px){.pcts{grid-template-columns:1fr;gap:2rem}}
-.red-more{margin-top:2.8rem}
+.red-more{margin-top:3.2rem;padding-right:8px}
 .btn-report{
-  display:inline-flex;align-items:center;gap:.6em;text-decoration:none;
-  font-family:var(--jp);font-weight:900;letter-spacing:.04em;line-height:1.4;
-  color:#fff;background:var(--black);border:1px solid var(--black);
-  font-size:clamp(1rem,3vw,1.2rem);padding:1.1rem 2.1rem;
-  transition:background .14s ease,color .14s ease,border-color .14s ease;
+  display:inline-flex;align-items:center;gap:.8rem;text-decoration:none;
+  font-family:var(--jp);font-weight:900;letter-spacing:.04em;line-height:1.3;white-space:nowrap;
+  color:#fff;background:var(--black);border:3px solid #fff;
+  font-size:clamp(1.15rem,3.6vw,1.6rem);padding:1.15rem 1.3rem 1.15rem 1.1rem;
+  box-shadow:8px 8px 0 #fff;
+  transition:transform .12s ease,box-shadow .12s ease;
+  animation:rpPulse 2.4s ease-in-out infinite;
 }
-.btn-report::before{content:"▶";font-size:.6em;line-height:1;transform:translateY(-.04em)}
-.btn-report:hover{background:#fff;color:var(--black);border-color:#fff}
-.btn-report:focus-visible{outline:3px solid #fff;outline-offset:4px}
+.rp-tag{
+  font-size:.52em;letter-spacing:.16em;line-height:1;
+  background:#fff;color:var(--red);padding:.45em .6em;
+}
+.rp-ico{
+  display:inline-grid;place-items:center;flex:0 0 auto;
+  width:1.6em;height:1.6em;border-radius:50%;
+  background:var(--red);color:#fff;font-size:.62em;margin-left:.2rem;
+  padding-left:.12em;
+}
+.btn-report:hover{transform:translate(4px,4px);box-shadow:4px 4px 0 #fff;animation:none}
+.btn-report:focus-visible{outline:3px solid var(--black);outline-offset:6px}
+@keyframes rpPulse{
+  0%,100%{box-shadow:8px 8px 0 #fff,0 0 0 0 rgba(255,255,255,0)}
+  50%{box-shadow:8px 8px 0 #fff,0 0 0 12px rgba(255,255,255,.28)}
+}
+@media(max-width:480px){
+  .btn-report{font-size:1.05rem;gap:.55rem;padding:1rem .9rem 1rem .8rem;box-shadow:6px 6px 0 #fff}
+  @keyframes rpPulse{0%,100%{box-shadow:6px 6px 0 #fff}50%{box-shadow:6px 6px 0 #fff,0 0 0 10px rgba(255,255,255,.28)}}
+}
 
 /* ═════════ 04 赤：戦う場所 ═════════ */
 #s04{text-align:center}
@@ -634,7 +653,7 @@ s{text-decoration-thickness:2px}
       <div class="slide-l">だから価格競争になる。</div>
     </div>
     <div class="red-more">
-      <a class="btn-report" href="https://lmp-fifteen-report.uminchu-t0422.chatgpt.site/" target="_blank" rel="noopener">15％の秘密を知る</a>
+      <a class="btn-report" href="https://lmp-fifteen-report.uminchu-t0422.chatgpt.site/" target="_blank" rel="noopener"><span class="rp-tag">特集</span><span class="rp-txt">15％の秘密を知る</span><span class="rp-ico" aria-hidden="true">▶</span></a>
     </div>
   </div>
 </section>
